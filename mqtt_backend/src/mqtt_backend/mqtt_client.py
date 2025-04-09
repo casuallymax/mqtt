@@ -4,18 +4,17 @@ from .weather_object import WeatherObject
 
 def on_connect(client, userdata, flags, reason_code):
     print(f"Connected with result code {reason_code}")
-    client.subscribe(WeatherClient.weather_topic + WeatherClient.current_station)
+    client.subscribe(MQTTClient.weather_topic + "#")
 
 
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
-    WeatherClient.latest_data = WeatherObject(msg.payload)
+    MQTTClient.weather_cache[msg.topic] = WeatherObject(msg.payload)
 
 
-class WeatherClient:
+class MQTTClient:
     weather_topic = '/weather/'
-    latest_data = ''
-    current_station = 'mosbach'
+    weather_cache = dict()
 
     def __init__(self):
         self.mqtt_client = mqtt.Client()
@@ -25,10 +24,11 @@ class WeatherClient:
         self.mqtt_client.loop_start()
 
     def close(self):
-        self.mqtt_client.unsubscribe(self.weather_topic + self.current_station)
+        self.mqtt_client.unsubscribe(self.weather_topic + "#")
         self.mqtt_client.loop_stop()
 
-    def change_station(self, new_station):
-        self.mqtt_client.unsubscribe(self.weather_topic + self.current_station)
-        self.mqtt_client.subscribe(self.weather_topic + new_station)
-        self.current_station = new_station
+    def get_station_data(self, station):
+        station = self.weather_topic + station
+        print(station)
+        if station in self.weather_cache:
+            return self.weather_cache.get(station)

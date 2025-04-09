@@ -1,11 +1,9 @@
-import json
-
 from quart import Quart, request
-from .client.weather_client import WeatherClient
+from .mqtt_client import MQTTClient
 
 app = Quart(__name__)
 
-weather_client = WeatherClient()
+mqtt_client = MQTTClient()
 
 
 @app.route('/ping')
@@ -14,17 +12,8 @@ def ping():
     return response
 
 
-@app.route('/current_weather')
-def current_weather():
-    return weather_client.latest_data.toJSON()
-
-
-@app.route('/change_station', methods=['POST'])
-async def change_station():
+@app.route('/current_weather', methods=['POST'])
+async def current_weather():
     station = (await request.get_json())['station']
-    try:
-        weather_client.change_station(station)
-    except:
-        return 500
-    else:
-        return weather_client.latest_data.toJSON(), 200
+    return mqtt_client.get_station_data(station).toJSON(), 200
+
