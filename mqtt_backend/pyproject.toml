@@ -1,0 +1,22 @@
+[project]
+name = "mqtt-backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Maximilian Reiter",email = "max.reiter.22@lehre.mosbach.dhbw.de"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "paho-mqtt (>=2.1.0,<3.0.0)",
+    "quart (>=0.20.0,<0.21.0)",
+]
+
+[tool.poetry]
+packages = [{include = "mqtt_backend", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
