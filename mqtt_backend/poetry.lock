@@ -321,6 +321,21 @@ werkzeug = ">=3.0"
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "quart-cors"
+version = "0.8.0"
+description = "A Quart extension to provide Cross Origin Resource Sharing, access control, support"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "quart_cors-0.8.0-py3-none-any.whl", hash = "sha256:62dc811768e2e1704d2b99d5880e3eb26fc776832305a19ea53db66f63837767"},
+    {file = "quart_cors-0.8.0.tar.gz", hash = "sha256:ac32c4931da6fba944e9e2d3f856f2db4fd82e3fb905a09646086780c221a118"},
+]
+
+[package.dependencies]
+quart = ">=0.15"
+
+[[package]]
 name = "werkzeug"
 version = "3.1.3"
 description = "The comprehensive WSGI web application library."
@@ -356,4 +371,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "4b8b307c2d2efdbc8daaeadb25b5152748229bd81bac0346bb6df83e3244f0e7"
+content-hash = "36d2be9911baa70590c71f1049569d26fef6d60cdf1e50244c1eb8a6d2830a22"

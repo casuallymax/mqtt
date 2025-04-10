@@ -1,0 +1,34 @@
+<div>
+  <mat-list>
+    <mat-list-item>
+      <span matListItemTitle>City:</span>
+      <span matListItemLine>{{currentWeather.city}}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>City ID:</span>
+      <span matListItemLine>{{currentWeather.cityId}}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Date/Time:</span>
+      <span matListItemLine>{{currentWeather.timeStamp}}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Current Temperature:</span>
+      <span matListItemLine>{{currentWeather.tempCurrent}}°C</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Maximum Temperature:</span>
+      <span matListItemLine>{{currentWeather.tempMax}}°C</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Minimum Temperature:</span>
+      <span matListItemLine>{{currentWeather.tempMin}}°C</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Comment:</span>
+      <span matListItemLine>{{currentWeather.comment}}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<router-outlet />
