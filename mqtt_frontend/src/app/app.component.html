@@ -1,5 +1,6 @@
 <div class="position-relative w-100 h-100">
-  <div class="card position-absolute top-50 start-50 translate-middle w-25">
+  @if (currentWeather) {
+    <div class="card position-absolute top-50 start-50 translate-middle w-25">
     <div class="card-header">
       <h4>Weather</h4>
     </div>
@@ -27,6 +28,7 @@
       </form>
     </div>
   </div>
+  }
 </div>
 
 <router-outlet />

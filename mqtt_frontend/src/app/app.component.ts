@@ -18,7 +18,7 @@ import {DecimalPipe} from '@angular/common';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'mqtt_frontend';
 
-  protected currentWeather!: WeatherDefinition
+  protected currentWeather!: WeatherDefinition | undefined
   private subscriptions: Subscription[] = [];
 
   station = new FormControl('', { nonNullable: true });
