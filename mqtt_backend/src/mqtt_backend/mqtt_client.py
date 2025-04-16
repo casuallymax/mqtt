@@ -39,10 +39,9 @@ class MQTTClient:
 
     def change_station(self, station):
         new_station = self.weather_topic + station
-        print(self.weather_cache)
         if new_station in self.weather_cache:
             self.weather_station = station
-            return "Success", 200
+            return {"msg": "Success"}, 200
         else:
-            return "Error", 404
+            return {"msg": "Error"}, 404
 

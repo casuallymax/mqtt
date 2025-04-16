@@ -18,11 +18,11 @@ export class WeatherService {
     this.webSocket$ = webSocket(this.BASE_URL + '/ws');
   };
 
-  setStation(station: string) {
+  setStation(station: string): Observable<any> {
     const body = {
       "station": station
-    };
-    this.webSocket$.next(body);
+    }
+    return this.httpClient.post<any>(this.BASE_URL + '/change_station', body)
   }
 
   getWeatherData(): Observable<any> {

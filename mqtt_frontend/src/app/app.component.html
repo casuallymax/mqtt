@@ -1,34 +1,32 @@
-<div>
-  <mat-list>
-    <mat-list-item>
-      <span matListItemTitle>City:</span>
-      <span matListItemLine>{{currentWeather.city}}</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>City ID:</span>
-      <span matListItemLine>{{currentWeather.cityId}}</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>Date/Time:</span>
-      <span matListItemLine>{{currentWeather.timeStamp}}</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>Current Temperature:</span>
-      <span matListItemLine>{{currentWeather.tempCurrent}}°C</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>Maximum Temperature:</span>
-      <span matListItemLine>{{currentWeather.tempMax}}°C</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>Minimum Temperature:</span>
-      <span matListItemLine>{{currentWeather.tempMin}}°C</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle>Comment:</span>
-      <span matListItemLine>{{currentWeather.comment}}</span>
-    </mat-list-item>
-  </mat-list>
+<div class="position-relative w-100 h-100">
+  <div class="card position-absolute top-50 start-50 translate-middle w-25">
+    <div class="card-header">
+      <h4>Weather</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">City: {{currentWeather.city}}</li>
+      <li class="list-group-item">CityID: {{currentWeather.cityId}}</li>
+      <li class="list-group-item">Date: {{currentWeather.timeStamp.getDate()}}/{{currentWeather.timeStamp.getMonth()}}/{{currentWeather.timeStamp.getFullYear()}}</li>
+      <li class="list-group-item">Time: {{currentWeather.timeStamp.getHours()}}:{{currentWeather.timeStamp.getMinutes()}}</li>
+      <li class="list-group-item">Temperature: {{currentWeather.tempCurrent | number: '.0-2'}} °C</li>
+      <li class="list-group-item">Maximum: {{currentWeather.tempMax | number: '.0-2'}} °C</li>
+      <li class="list-group-item">Minimum: {{currentWeather.tempMin | number: '.0-2'}} °C</li>
+      <li class="list-group-item">Comment: {{currentWeather.comment}}</li>
+    </ul>
+    <div class="card-footer">
+      <form class="row row-cols-md-auto gy-1 gx-2 align-items-center">
+        <div class="col-12 w-auto">
+          <label class="visually-hidden" for="inlineChangeStation">Change Station</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="inlineChangeStation" placeholder="Change Station" [formControl]="station">
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" (click)="executeStationChange()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <router-outlet />
