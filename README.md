@@ -4,7 +4,6 @@
 
 ## Setup Backend
 
-----
 ### Poetry
 
 In diesem Projekt wird Poetry für das Dependeny Management der Python-Umgebung verwendet.
@@ -28,8 +27,6 @@ poetry run quart run
 ```
 
 ## Setup Frontend
-
----
 ### Angular
 
 - Angular CLI 18.2.10
