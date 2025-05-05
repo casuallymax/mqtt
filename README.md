@@ -1,6 +1,4 @@
-# MQTT-Example
-#### Aufgabe 1c)
-
+# MQTT-Wetter
 
 ## Setup Backend
 
@@ -13,12 +11,8 @@ Für die Installation siehe Poetry Docu: https://python-poetry.org/docs/
 
 Installieren der Dependencies:
 ```bash
+cd mqtt_backend
 poetry install
-```
-
-Aktivieren der virtuellen Umgebung:
-```bash
-poetry env activate
 ```
 
 Starten des Servers:
